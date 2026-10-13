@@ -8,8 +8,19 @@
   --font-main: "Poppins", sans-serif;
 }
 
+html, body{
+  height: 100%;
+}
+
 body {
   font-family: var(--font-main);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main{
+  flex: 1 0 auto;
 }
 
 .luxe-hero {
