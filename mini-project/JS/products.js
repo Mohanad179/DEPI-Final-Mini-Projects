@@ -251,3 +251,31 @@ const products = [
     image: "https://placehold.co/300x400?text=Beanie"
   }
 ];
+
+// products card UI code in all pages, this will be mapped in main.js to display products
+// 1 product on mobile, 2 products on medium screens, 3 on big tablets, 4 from laptops and bigger
+const productCard = function(p){
+  return (
+    `<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+    <div class="card h-100 rounded-0 position-relative">
+      <button class="btn position-absolute top-0 end-0 m-2 p-0 lh-1 text-dark"
+              aria-label="Add to wishlist">
+        <i class="bi bi-heart"></i>
+      </button>
+      <img src="${p.image}" alt="${p.name}"
+           class="card-img-top rounded-0 object-fit-cover"
+           style="aspect-ratio: 1 / 1" />
+      <div class="card-body d-flex flex-column">
+        <h3 class="card-title fs-6 fw-semibold">${p.name}</h3>
+        <p class="text-secondary small mb-1">${p.category}</p>
+        <p class="small mb-2">
+          <span class="text-warning">★★★★★</span>
+          <span class="text-secondary">(${p.rating})</span>
+        </p>
+        <p class="fw-semibold mb-3">$${p.price.toFixed(2)}</p>
+        <button class="btn btn-dark rounded-0 w-100 mt-auto add-btn"
+                data-id="${p.id}">Add to Cart</button>
+      </div>
+    </div>
+  </div>`
+)};
