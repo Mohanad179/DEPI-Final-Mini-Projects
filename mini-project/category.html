@@ -1,312 +1,242 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LUXE | Products</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/products.css" />
-    <link rel="stylesheet" href="css/cart.css" />
-  </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top py-0">
-      <div class="container">
-        <a class="navbar-brand fs-3 fw-bolder text-dark me-4" href="index.html"
-          >LUXE</a
-        >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUXE | Products</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/products.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+</head>
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#luxeNav"
-          aria-controls="luxeNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<body>
+  <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top py-0">
+    <div class="container">
+      <a class="navbar-brand fs-3 fw-bolder text-dark me-4" href="index.html">LUXE</a>
 
-        <div
-          class="collapse navbar-collapse align-items-lg-center"
-          id="luxeNav"
-        >
-          <ul class="nav nav-underline gap-4 me-auto">
-            <li class="nav-item">
-              <a class="nav-link text-dark py-2 py-lg-3" href="index.html"
-                >Home</a
-              >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#luxeNav"
+        aria-controls="luxeNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse align-items-lg-center" id="luxeNav">
+        <ul class="nav nav-underline gap-4 me-auto">
+          <li class="nav-item">
+            <a class="nav-link text-dark py-2 py-lg-3" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark py-2 py-lg-3" data-cat="men" href="category.html?category=men">Men</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark py-2 py-lg-3" data-cat="women" href="category.html?category=women">Women</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark py-2 py-lg-3" data-cat="electronics"
+              href="category.html?category=electronics">Electronics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark py-2 py-lg-3" data-cat="accessories"
+              href="category.html?category=accessories">Accessories</a>
+          </li>
+        </ul>
+
+        <form class="col-lg-3 my-3 my-lg-0 me-lg-4" role="search">
+          <div class="input-group input-group-sm">
+            <span
+              class="input-group-text bg-light border border-dark border-opacity-10 rounded-0 border-end-0 text-secondary">
+              <i class="bi bi-search"></i>
+            </span>
+            <input data-bs-theme="dark"
+              class="form-control bg-light text-dark border border-dark border-opacity-10 rounded-0 border-start-0 shadow-none"
+              type="search" placeholder="Search for products..." aria-label="Search for products" />
+          </div>
+        </form>
+
+        <div class="d-flex align-items-center gap-3 pb-2 pb-lg-0">
+          <a href="#" class="text-dark lh-1" aria-label="Account"><i class="bi bi-person fs-6"></i></a>
+          <a href="#" class="text-dark lh-1" aria-label="Wishlist"><i class="bi bi-heart fs-6"></i></a>
+          <a href="#" id="cartBtn" class="text-dark lh-1 position-relative" aria-label="Cart">
+            <i class="bi bi-bag fs-6"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black p-1 lh-1"><small
+                id="cartCount">0</small></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-fluid py-5">
+
+    <div class="row">
+      <div class="bg-white p-4 col-lg-2 border-end shadow-lg rounded-3">
+        <h5 class="fw-semibold mb-4 mt-4">Categories</h5>
+
+        <p class="fw-semibold mb-4">Price Range</p>
+        <div id="priceFilter" class="d-flex flex-column gap-3">
+
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="price-all" data-min="0" data-max="Infinity" checked>
+            <label class="form-check-label" for="price-all">All prices</label>
+          </div>
+
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="price-1" data-min="0" data-max="10">
+            <label class="form-check-label" for="price-1">Under $10</label>
+          </div>
+
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="price-2" data-min="10" data-max="50">
+            <label class="form-check-label" for="price-2">$10 - $50</label>
+          </div>
+
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="price-3" data-min="50" data-max="100">
+            <label class="form-check-label" for="price-3">$50 - $100</label>
+          </div>
+
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="price-4" data-min="100" data-max="Infinity">
+            <label class="form-check-label" for="price-4">Over $100</label>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="p-3 col-lg-10">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+          <h1 class="fs-2 fw-normal mb-0" id="pageTitle">All Products</h1>
+          <p class="text-secondary small mb-0" id="resultCount"></p>
+        </div>
+
+        <div class="row g-4" id="grid"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-black text-white pt-4">
+    <div class="container">
+      <div class="row gy-4 pb-4">
+        <div class="col-12 col-lg-3">
+          <h2 class="fs-4 fw-normal mb-3">LUXE</h2>
+          <p class="small mb-0"><small>Define Style. Define You.</small></p>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h3 class="small fw-semibold mb-3"><small>Quick Links</small></h3>
+          <ul class="list-unstyled small mb-0 d-grid gap-2">
+            <li class="small">
+              <a href="index.html"
+                class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"><small>Home</small></a>
             </li>
-            <li class="nav-item">
-              <a
-                class="nav-link text-dark py-2 py-lg-3"
-                data-cat="men"
-                href="category.html?category=men"
-                >Men</a
-              >
+            <li class="small">
+              <a href="category.html?category=all"
+                class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"><small>Shop</small></a>
             </li>
-            <li class="nav-item">
-              <a
-                class="nav-link text-dark py-2 py-lg-3"
-                data-cat="women"
-                href="category.html?category=women"
-                >Women</a
-              >
+            <li class="small">
+              <a href="#"
+                class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"><small>About</small></a>
             </li>
-            <li class="nav-item">
-              <a
-                class="nav-link text-dark py-2 py-lg-3"
-                data-cat="shoes"
-                href="category.html?category=shoes"
-                >Shoes</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link text-dark py-2 py-lg-3"
-                data-cat="accessories"
-                href="category.html?category=accessories"
-                >Accessories</a
-              >
+            <li class="small">
+              <a href="#"
+                class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"><small>Contact</small></a>
             </li>
           </ul>
+        </div>
 
-          <form class="col-lg-3 my-3 my-lg-0 me-lg-4" role="search">
-            <div class="input-group input-group-sm">
-              <span
-                class="input-group-text bg-light border border-dark border-opacity-10 rounded-0 border-end-0 text-secondary"
-              >
-                <i class="bi bi-search"></i>
-              </span>
-              <input
-                data-bs-theme="dark"
-                class="form-control bg-light text-dark border border-dark border-opacity-10 rounded-0 border-start-0 shadow-none"
-                type="search"
-                placeholder="Search for products..."
-                aria-label="Search for products"
-              />
+        <div class="col-6 col-lg-2">
+          <h3 class="small fw-semibold mb-3"><small>Categories</small></h3>
+          <ul class="list-unstyled small mb-0 d-grid gap-2">
+            <li class="small">
+              <a href="category.html?category=men"
+                class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"><small>Men</small></a>
+            </li>
+            <li class="small">
+              <a href="category.html?category=women"
+                class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"><small>Women</small></a>
+            </li>
+            <li class="small">
+              <a href="category.html?category=electronics"
+                class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"><small>Electronics</small></a>
+            </li>
+            <li class="small">
+              <a href="category.html?category=accessories"
+                class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"><small>Accessories</small></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-2">
+          <h3 class="small fw-semibold mb-3"><small>Contact Us</small></h3>
+          <ul class="list-unstyled small mb-3 d-grid gap-2">
+            <li class="small">
+              <a href="mailto:support@luxe.com"
+                class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"><small>support@luxe.com</small></a>
+            </li>
+            <li class="small">
+              <a href="tel:+15554567890"
+                class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"><small>+1 (555)
+                  456-7890</small></a>
+            </li>
+          </ul>
+          <div class="d-flex gap-3">
+            <a href="#" class="link-light link-opacity-75 link-opacity-100-hover" aria-label="Instagram"><i
+                class="bi bi-instagram"></i></a>
+            <a href="#" class="link-light link-opacity-75 link-opacity-100-hover" aria-label="X"><i
+                class="bi bi-twitter-x"></i></a>
+            <a href="#" class="link-light link-opacity-75 link-opacity-100-hover" aria-label="Facebook"><i
+                class="bi bi-facebook"></i></a>
+            <a href="#" class="link-light link-opacity-75 link-opacity-100-hover" aria-label="YouTube"><i
+                class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <h3 class="small fw-semibold mb-3">
+            <small>Subscribe to our newsletter</small>
+          </h3>
+          <p class="small mb-3"><small>Get the latest updates</small></p>
+          <form>
+            <div class="input-group">
+              <input type="email" class="form-control rounded-0 border-0 shadow-none py-2" aria-label="Email address"
+                required />
+              <button type="submit" class="btn btn-light rounded-0 border-0 px-3" aria-label="Subscribe">
+                <i class="bi bi-arrow-right"></i>
+              </button>
             </div>
           </form>
-
-          <div class="d-flex align-items-center gap-3 pb-2 pb-lg-0">
-            <a href="#" class="text-dark lh-1" aria-label="Account"
-              ><i class="bi bi-person fs-6"></i
-            ></a>
-            <a href="#" class="text-dark lh-1" aria-label="Wishlist"
-              ><i class="bi bi-heart fs-6"></i
-            ></a>
-            <a
-              href="#"
-              id="cartBtn"
-              class="text-dark lh-1 position-relative"
-              aria-label="Cart"
-            >
-              <i class="bi bi-bag fs-6"></i>
-              <span
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black p-1 lh-1"
-                ><small id="cartCount">0</small></span
-              >
-            </a>
-          </div>
         </div>
       </div>
-    </nav>
 
-    <main class="container py-5">
-      <div class="d-flex justify-content-between align-items-end mb-4">
-        <h1 class="fs-2 fw-normal mb-0" id="pageTitle">All Products</h1>
-        <p class="text-secondary small mb-0" id="resultCount"></p>
-      </div>
+      <hr class="border-secondary m-0" />
 
-      <div class="row g-4" id="grid"></div>
-    </main>
+      <p class="small text-white-50 py-3 mb-0">
+        <small>&copy; 2025 LUXE. All rights reserved.</small>
+      </p>
+    </div>
+  </footer>
 
-    <footer class="bg-black text-white pt-4">
-      <div class="container">
-        <div class="row gy-4 pb-4">
-          <div class="col-12 col-lg-3">
-            <h2 class="fs-4 fw-normal mb-3">LUXE</h2>
-            <p class="small mb-0"><small>Define Style. Define You.</small></p>
-          </div>
+  <!-- cart skeleton  -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button id="closeCart">✕</button>
+    </div>
+    <div id="cartItems"></div>
+    <div class="cart-footer">Total: $<span id="cartTotal">0</span></div>
+  </aside>
 
-          <div class="col-6 col-lg-2">
-            <h3 class="small fw-semibold mb-3"><small>Quick Links</small></h3>
-            <ul class="list-unstyled small mb-0 d-grid gap-2">
-              <li class="small">
-                <a
-                  href="index.html"
-                  class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"
-                  ><small>Home</small></a
-                >
-              </li>
-              <li class="small">
-                <a
-                  href="category.html?category=all"
-                  class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"
-                  ><small>Shop</small></a
-                >
-              </li>
-              <li class="small">
-                <a
-                  href="#"
-                  class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"
-                  ><small>About</small></a
-                >
-              </li>
-              <li class="small">
-                <a
-                  href="#"
-                  class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"
-                  ><small>Contact</small></a
-                >
-              </li>
-            </ul>
-          </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="JS/products.js"></script>
+  <script src="JS/cart.js"></script>
+  <script src="JS/category.js"></script>
+  <script src="JS/main.js"></script>
+</body>
 
-          <div class="col-6 col-lg-2">
-            <h3 class="small fw-semibold mb-3"><small>Categories</small></h3>
-            <ul class="list-unstyled small mb-0 d-grid gap-2">
-              <li class="small">
-                <a
-                  href="category.html?category=men"
-                  class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"
-                  ><small>Men</small></a
-                >
-              </li>
-              <li class="small">
-                <a
-                  href="category.html?category=women"
-                  class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"
-                  ><small>Women</small></a
-                >
-              </li>
-              <li class="small">
-                <a
-                  href="category.html?category=shoes"
-                  class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"
-                  ><small>Shoes</small></a
-                >
-              </li>
-              <li class="small">
-                <a
-                  href="category.html?category=accessories"
-                  class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"
-                  ><small>Accessories</small></a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-12 col-md-6 col-lg-2">
-            <h3 class="small fw-semibold mb-3"><small>Contact Us</small></h3>
-            <ul class="list-unstyled small mb-3 d-grid gap-2">
-              <li class="small">
-                <a
-                  href="mailto:support@luxe.com"
-                  class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"
-                  ><small>support@luxe.com</small></a
-                >
-              </li>
-              <li class="small">
-                <a
-                  href="tel:+15554567890"
-                  class="link-light link-underline-opacity-0 link-opacity-75 link-opacity-100-hover"
-                  ><small>+1 (555) 456-7890</small></a
-                >
-              </li>
-            </ul>
-            <div class="d-flex gap-3">
-              <a
-                href="#"
-                class="link-light link-opacity-75 link-opacity-100-hover"
-                aria-label="Instagram"
-                ><i class="bi bi-instagram"></i
-              ></a>
-              <a
-                href="#"
-                class="link-light link-opacity-75 link-opacity-100-hover"
-                aria-label="X"
-                ><i class="bi bi-twitter-x"></i
-              ></a>
-              <a
-                href="#"
-                class="link-light link-opacity-75 link-opacity-100-hover"
-                aria-label="Facebook"
-                ><i class="bi bi-facebook"></i
-              ></a>
-              <a
-                href="#"
-                class="link-light link-opacity-75 link-opacity-100-hover"
-                aria-label="YouTube"
-                ><i class="bi bi-youtube"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6 col-lg-3">
-            <h3 class="small fw-semibold mb-3">
-              <small>Subscribe to our newsletter</small>
-            </h3>
-            <p class="small mb-3"><small>Get the latest updates</small></p>
-            <form>
-              <div class="input-group">
-                <input
-                  type="email"
-                  class="form-control rounded-0 border-0 shadow-none py-2"
-                  aria-label="Email address"
-                  required
-                />
-                <button
-                  type="submit"
-                  class="btn btn-light rounded-0 border-0 px-3"
-                  aria-label="Subscribe"
-                >
-                  <i class="bi bi-arrow-right"></i>
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-
-        <hr class="border-secondary m-0" />
-
-        <p class="small text-white-50 py-3 mb-0">
-          <small>&copy; 2025 LUXE. All rights reserved.</small>
-        </p>
-      </div>
-    </footer>
-
-    <!-- cart skeleton  -->
-    <div class="overlay" id="overlay"></div>
-    <aside class="cart-drawer" id="cartDrawer">
-      <div class="cart-header">
-        <h3>Your Cart</h3>
-        <button id="closeCart">✕</button>
-      </div>
-      <div id="cartItems"></div>
-      <div class="cart-footer">Total: $<span id="cartTotal">0</span></div>
-    </aside>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="JS/products.js"></script>
-    <script src="JS/cart.js"></script>
-    <script src="JS/main.js"></script>
-    <script src="JS/category.js"></script>
-
-  </body>
 </html>
