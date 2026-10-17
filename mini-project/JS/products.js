@@ -6,8 +6,7 @@ async function getProducts() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const allProducts = await res.json();
 
-    // Return all products except electronics
-    return allProducts.filter((p) => p.category !== "electronics")
+    return allProducts;
 }
 
 // for the yellow rating stars
