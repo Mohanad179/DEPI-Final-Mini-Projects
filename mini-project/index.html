@@ -16,19 +16,27 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top py-0">
+  <nav class="luxe-navbar navbar navbar-expand-lg bg-white border-bottom sticky-top py-0">
     <div class="container">
-      <a class="navbar-brand fs-3 fw-bolder text-dark me-4" href="#">LUXE</a>
-
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#luxeNav"
         aria-controls="luxeNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
+      <a class="navbar-brand fs-3 fw-bolder text-dark me-4" href="index.html">LUXE</a>
+
+      <!-- cart in mobile -->
+      <div class="d-flex d-lg-none align-items-center gap-3">
+        <a href="#" class="text-dark lh-1 position-relative" aria-label="Cart" data-cart-open>
+          <i class="bi bi-bag fs-6"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black p-1 lh-1"><small data-cart-count>0</small></span>
+        </a>
+      </div>
+
       <div class="collapse navbar-collapse align-items-lg-center" id="luxeNav">
-        <ul class="nav nav-underline gap-4 me-auto">
+        <ul class="links nav nav-underline gap-4 me-auto ">
           <li class="nav-item">
-            <a class="nav-link text-dark py-2 py-lg-3 active" aria-current="page" href="#">Home</a>
+            <a class="nav-link text-dark py-2 py-lg-3 active" aria-current="page" href="index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-dark py-2 py-lg-3" href="category.html?category=men">Men</a>
@@ -57,13 +65,13 @@
           </div>
         </form>
 
-        <div class="d-flex align-items-center gap-3 pb-2 pb-lg-0">
+        <div class="d-flex align-items-center gap-3 pb-2 pb-lg-0 respon-non">
           <a href="#" class="text-dark lh-1" aria-label="Account"><i class="bi bi-person fs-6"></i></a>
 
-          <a href="#" id="cartBtn" class="text-dark lh-1 position-relative" aria-label="Cart">
+          <a href="#" id="cartBtn" class="text-dark lh-1 position-relative" aria-label="Cart" data-cart-open>
             <i class="bi bi-bag fs-6"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black p-1 lh-1">
-              <small id="cartCount">0</small>
+              <small data-cart-count>0</small>
             </span>
           </a>
 
@@ -74,106 +82,113 @@
 
   <main>
     <section class="luxe-hero position-relative bg-black overflow-hidden" aria-label="New collection">
-      <div class="position-absolute top-0 end-0 h-100 col-12 col-lg-8">
-        <img src="images/hero.jpg" class="luxe-hero-img w-100 h-100 object-fit-cover" alt="" />
+
+    <div id="heroCarousel" class="carousel slide  position-relative h-100" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
       </div>
-      <div class="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-75 d-lg-none"></div>
-      <div class="luxe-hero-overlay position-absolute top-0 start-0 w-100 h-100 d-none d-lg-block"></div>
 
-      <!-- carousel component from bootstrap  -->
-      <div id="heroCarousel" class="carousel slide position-relative h-100" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"
-            aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        </div>
+      <div class="carousel-inner h-100">
 
-        <div class="carousel-inner h-100">
-          <div class="carousel-item active h-100">
-            <div class="container h-100 d-flex align-items-center text-white">
-              <!-- 1  -->
-              <div class="col-lg-7 px-lg-5">
-                <p class="text-uppercase mb-2">SUMMER ESSENTIALS</p>
-                <h1 class="display-2 fw-bolder mb-4">
-                  Elevate Your<br />Everyday
-                </h1>
-                <p class="mb-4">
-                  Uncompromising quality meets modern design. Discover
-                  statement pieces crafted for every occasion.
-                </p>
-                <a href="category.html" class="btn btn-light rounded-0 px-4 py-3 fw-semibold">Explore Collection <i
-                    class="bi bi-arrow-right ms-2"></i></a>
-              </div>
-            </div>
+        <!-- Slide 1 -->
+        <div class="carousel-item active h-100">
+          <div class="position-absolute top-0 end-0 h-100 col-12 col-lg-8">
+            <img src="images/hero.jpg" class="luxe-hero-img w-100 h-100 object-fit-cover" alt="" />
           </div>
+          <div class="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-75 d-lg-none"></div>
+          <div class="luxe-hero-overlay position-absolute top-0 start-0 w-100 h-100 d-none d-lg-block"></div>
 
-          <div class="carousel-item h-100">
-            <div class="container h-100 d-flex align-items-center text-white">
-              <!-- 2  -->
-              <div class="col-lg-7 px-lg-5">
-                <p class="text-uppercase mb-2">LUXURY REDEFINED</p>
-                <h2 class="display-2 fw-bolder mb-4">
-                  Effortless<br />Elegance
-                </h2>
-                <p class="mb-4">
-                  Designed for confidence and tailored to perfection. Upgrade
-                  your wardrobe with our latest arrivals.
-                </p>
-                <a href="#" class="btn btn-light rounded-0 px-4 py-3 fw-semibold">Shop New Arrivals <i
-                    class="bi bi-arrow-right ms-2"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item h-100">
-            <div class="container h-100 d-flex align-items-center text-white">
-              <!-- 3  -->
-              <div class="col-lg-7 px-lg-5">
-                <p class="text-uppercase mb-2">LIMITED TIME ONLY</p>
-                <h2 class="display-2 fw-bolder mb-4">
-                  Exclusive Wardrobe<br />Picks
-                </h2>
-                <p class="mb-4">
-                  Enjoy up to 30% off selected luxury apparel, footwear, and
-                  premium accessories.
-                </p>
-                <a href="#" class="btn btn-light rounded-0 px-4 py-3 fw-semibold">Claim Your Style <i
-                    class="bi bi-arrow-right ms-2"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item h-100">
-            <div class="container h-100 d-flex align-items-center text-white">
-              <!-- 4  -->
-              <div class="col-lg-7 px-lg-5">
-                <p class="text-uppercase mb-2">TRENDING NOW</p>
-                <h2 class="display-2 fw-bolder mb-4">
-                  Redefine Modern <br />Fashion
-                </h2>
-                <p class="mb-4">
-                  Clean silhouettes, refined fabrics, <br />and timeless
-                  aesthetics engineered for your daily lifestyle.
-                </p>
-                <a href="#" class="btn btn-light rounded-0 px-4 py-3 fw-semibold">Shop Men & Women<i
-                    class="bi bi-arrow-right ms-2"></i></a>
-              </div>
+          <div class="container h-100 d-flex align-items-center text-white position-relative">
+            <div class="col-lg-7 px-lg-5">
+              <p class="text-uppercase mb-2">SUMMER ESSENTIALS</p>
+              <h1 class="display-2 fw-bolder mb-4">Elevate Your<br />Everyday</h1>
+              <p class="mb-4">
+                Uncompromising quality meets modern design. Discover
+                statement pieces crafted for every occasion.
+              </p>
+              <a href="category.html" class="btn btn-light rounded-0 px-4 py-3 fw-semibold">Explore Collection <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></a>
             </div>
           </div>
         </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+        <!-- Slide 2 -->
+        <div class="carousel-item h-100">
+          <div class="position-absolute top-0 end-0 h-100 col-12 col-lg-8">
+            <img src="images/hero-2.png" class="luxe-hero-img w-100 h-100 object-fit-cover" alt="" />
+          </div>
+          <div class="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-75 d-lg-none"></div>
+          <div class="luxe-hero-overlay position-absolute top-0 start-0 w-100 h-100 d-none d-lg-block"></div>
+
+          <div class="container h-100 d-flex align-items-center text-white position-relative">
+            <div class="col-lg-7 px-lg-5">
+              <p class="text-uppercase mb-2">LUXURY REDEFINED</p>
+              <h2 class="display-2 fw-bolder mb-4">Effortless<br />Elegance</h2>
+              <p class="mb-4">
+                Designed for confidence and tailored to perfection. Upgrade
+                your wardrobe with our latest arrivals.
+              </p>
+              <a href="category.html" class="btn btn-light rounded-0 px-4 py-3 fw-semibold">Shop New Arrivals <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item h-100">
+          <div class="position-absolute top-0 end-0 h-100 col-12 col-lg-8">
+            <img src="images/hero-3.jpeg" class="luxe-hero-img w-100 h-100 object-fit-cover" alt="" />
+          </div>
+          <div class="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-75 d-lg-none"></div>
+          <div class="luxe-hero-overlay position-absolute top-0 start-0 w-100 h-100 d-none d-lg-block"></div>
+
+          <div class="container h-100 d-flex align-items-center text-white position-relative">
+            <div class="col-lg-7 px-lg-5">
+              <p class="text-uppercase mb-2">LIMITED TIME ONLY</p>
+              <h2 class="display-2 fw-bolder mb-4">Exclusive Wardrobe<br />Picks</h2>
+              <p class="mb-4">
+                Enjoy up to 30% off selected luxury apparel, footwear, and
+                premium accessories.
+              </p>
+              <a href="category.html" class="btn btn-light rounded-0 px-4 py-3 fw-semibold">Claim Your Style <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carousel-item h-100">
+          <div class="position-absolute top-0 end-0 h-100 col-12 col-lg-8">
+            <img src="images/hero-4.png" class="luxe-hero-img w-100 h-100 object-fit-cover" alt="" />
+          </div>
+          <div class="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-75 d-lg-none"></div>
+          <div class="luxe-hero-overlay position-absolute top-0 start-0 w-100 h-100 d-none d-lg-block"></div>
+
+          <div class="container h-100 d-flex align-items-center text-white position-relative">
+            <div class="col-lg-7 px-lg-5">
+              <p class="text-uppercase mb-2">TRENDING NOW</p>
+              <h2 class="display-2 fw-bolder mb-4">Redefine Modern<br />Fashion</h2>
+              <p class="mb-4">
+                Clean silhouettes, refined fabrics, <br />and timeless
+                aesthetics engineered for your daily lifestyle.
+              </p>
+              <a href="category.html" class="btn btn-light rounded-0 px-4 py-3 fw-semibold">Shop Men &amp; Women <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </section>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
 
     <section class="py-5" aria-labelledby="featuredTitle">
       <div class="container">
@@ -307,6 +322,27 @@
     <div id="cartItems"></div>
     <div class="cart-footer">Total: $<span id="cartTotal">0</span></div>
   </aside>
+
+  <!-- Mobile-->
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html" class="active" aria-current="page" data-page="home" data-nav-home data-icon="house">
+      <i class="bi bi-house-fill" aria-hidden="true"></i>
+      <span>Home</span>
+    </a>
+
+    <a href="category.html?category=all" data-page="shop" data-nav-shop data-icon="shop" data-no-fill>
+      <i class="bi bi-shop" aria-hidden="true"></i>
+      <span>Shop</span>
+    </a>
+
+    <button type="button" data-cart-open data-icon="bag" aria-label="Open cart">
+      <span class="mobile-cart-icon">
+        <i class="bi bi-bag" aria-hidden="true"></i>
+        <span class="cart-count" data-cart-count>0</span>
+      </span>
+      <span>Cart</span>
+    </button>
+  </nav>
 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/products.js"></script>

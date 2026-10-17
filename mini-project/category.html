@@ -16,33 +16,40 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top py-0">
+  <nav class="luxe-navbar navbar navbar-expand-lg bg-white border-bottom sticky-top py-0">
     <div class="container">
-      <a class="navbar-brand fs-3 fw-bolder text-dark me-4" href="index.html">LUXE</a>
-
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#luxeNav"
         aria-controls="luxeNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
+      <a class="navbar-brand fs-3 fw-bolder text-dark me-4" href="index.html">LUXE</a>
+      
+      <!-- cart in mobile -->
+      <div class="d-flex d-lg-none align-items-center gap-3">
+        <a href="#" class="text-dark lh-1 position-relative" aria-label="Cart" data-cart-open>
+          <i class="bi bi-bag fs-6"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black p-1 lh-1"><small data-cart-count>3</small></span>
+        </a>
+      </div>
+
       <div class="collapse navbar-collapse align-items-lg-center" id="luxeNav">
-        <ul class="nav nav-underline gap-4 me-auto">
+        <ul class="links nav nav-underline gap-4 me-auto ">
           <li class="nav-item">
-            <a class="nav-link text-dark py-2 py-lg-3" href="index.html">Home</a>
+            <a class="nav-link text-dark py-2 py-lg-3 active" aria-current="page" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark py-2 py-lg-3" data-cat="men" href="category.html?category=men">Men</a>
+            <a class="nav-link text-dark py-2 py-lg-3" href="category.html?category=men">Men</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark py-2 py-lg-3" data-cat="women" href="category.html?category=women">Women</a>
+            <a class="nav-link text-dark py-2 py-lg-3" href="category.html?category=women">Women</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-dark py-2 py-lg-3" data-cat="electronics"
               href="category.html?category=electronics">Electronics</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark py-2 py-lg-3" data-cat="accessories"
-              href="category.html?category=accessories">Accessories</a>
+            <a class="nav-link text-dark py-2 py-lg-3" href="category.html?category=accessories">Accessories</a>
           </li>
         </ul>
 
@@ -58,15 +65,16 @@
           </div>
         </form>
 
-        <div class="d-flex align-items-center gap-3 pb-2 pb-lg-0">
+        <div class="d-flex align-items-center gap-3 pb-2 pb-lg-0 respon-non">
           <a href="#" class="text-dark lh-1" aria-label="Account"><i class="bi bi-person fs-6"></i></a>
-          <a href="#" class="text-dark lh-1" aria-label="Wishlist"><i class="bi bi-heart fs-6"></i></a>
-          <a href="#" id="cartBtn" class="text-dark lh-1 position-relative" aria-label="Cart">
+
+          <a href="#" id="cartBtn" class="text-dark lh-1 position-relative" aria-label="Cart" data-cart-open>
             <i class="bi bi-bag fs-6"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black p-1 lh-1">
-              <small id="cartCount">0</small>
+              <small data-cart-count>0</small>
             </span>
           </a>
+
         </div>
       </div>
     </div>
@@ -232,6 +240,28 @@
     <div id="cartItems"></div>
     <div class="cart-footer">Total: $<span id="cartTotal">0</span></div>
   </aside>
+
+
+  <!-- Mobile-->
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html" class="active" aria-current="page" data-page="home" data-nav-home data-icon="house">
+      <i class="bi bi-house-fill" aria-hidden="true"></i>
+      <span>Home</span>
+    </a>
+
+    <a href="category.html?category=all" data-page="shop" data-nav-shop data-icon="shop" data-no-fill>
+      <i class="bi bi-shop" aria-hidden="true"></i>
+      <span>Shop</span>
+    </a>
+
+    <button type="button" data-cart-open data-icon="bag" aria-label="Open cart">
+      <span class="mobile-cart-icon">
+        <i class="bi bi-bag" aria-hidden="true"></i>
+        <span class="cart-count" data-cart-count>0</span>
+      </span>
+      <span>Cart</span>
+    </button>
+  </nav>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/products.js"></script>
