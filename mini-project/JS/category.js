@@ -75,3 +75,20 @@ priceBoxes.forEach((box) => {
     renderGrid();
   });
 });
+
+function setActiveNav() {
+  const path = location.pathname.split("/").pop() || "index.html";
+  const cat = new URLSearchParams(location.search).get("category");
+
+  document.querySelectorAll("#luxeNav .nav-link").forEach(link => {
+    const url = new URL(link.getAttribute("href"), location.href);
+    const linkPage = url.pathname.split("/").pop();
+    const linkCat = url.searchParams.get("category");
+
+    const isActive = linkPage === path && linkCat === cat;
+    link.classList.toggle("active", isActive);
+    if (isActive) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
+  });
+}
+setActiveNav();
