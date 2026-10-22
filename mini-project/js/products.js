@@ -1,12 +1,26 @@
-
 const API_URL = "https://fakestoreapi.com/products";
+// API Response stored locally as a fallback if the api does not respond (Stored in data/products.json)
+const LOCAL_URL = "data/products.json";
+
+async function fetchJson(url, ms = 4000) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), ms);
+  try {
+    const res = await fetch(url, { signal: ctrl.signal });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.json();
+  } finally {
+    clearTimeout(t);
+  }
+}
 
 async function getProducts() {
-    const res = await fetch(API_URL);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const allProducts = await res.json();
-
-    return allProducts;
+  try {
+    return await fetchJson(API_URL);
+  } catch (err) {
+    console.warn("API failed, using local data:", err);
+    return await fetchJson(LOCAL_URL);
+  }
 }
 
 // for the yellow rating stars
