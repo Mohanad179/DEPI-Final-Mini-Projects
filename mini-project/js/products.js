@@ -33,11 +33,6 @@ const productCard = (p) => `
   <div class="col-12 col-sm-6 col-md-4 col-lg-3">
     <div class="card h-100 rounded-4 position-relative" id='card'>
 
-      <button class="btn position-absolute top-0 end-0 m-2 p-0 lh-1 text-dark"
-              aria-label="Add to wishlist">
-        <i class="bi bi-heart"></i>
-      </button>
-
       <img src="${p.image}" alt="${p.title}"
            class="card-img-top rounded-0 object-fit-contain p-3"
            style="aspect-ratio: 1 / 1" />
